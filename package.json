@@ -1,0 +1,34 @@
+{
+  "name": "react-datepicker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.1.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "1.1.5",
+    "reactstrap": "^6.4.0",
+    "styled-components": "^4.0.0-beta.8"
+  },
+  "scripts": {
+    "start": "npx npm-run-all yarn:build yarn:start",
+    "yarn:start": "react-scripts start",
+    "yarn:build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.7.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "mocha-jsdom": "^2.0.0"
+  }
+}
