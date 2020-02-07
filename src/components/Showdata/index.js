@@ -3,6 +3,7 @@ import { Card, Alert, CardHeader, CardFooter } from 'reactstrap';
 import axios from 'axios';
 import  CheckBox  from './checkbox';
 import Recipes from './recipes';
+import { API_URL } from '../../helpers/config';
 
 class Showdata extends React.Component {
   constructor(props) {
@@ -17,23 +18,30 @@ class Showdata extends React.Component {
   }
 
   onBtnIngredients = () => {
-    axios.get('https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/ingredients')
+    axios.get(API_URL + '/ingredients')
     .then((res) => {
       let datas = [];
-      res.data.map(item => {
+      let dates = [];
+      // eslint-disable-next-line
+      res.data.map((item) => {
         if (this.props.date <= item['use-by']) {
           item.isChecked = false;
           datas.push(item) 
-        } else {
-          this.setState({
-            notifExpiredDate: true
-          })
-          return this.notifExpDate();
         }
-      })
+        dates.push(item['use-by']);
+      });
       this.setState({
         data: datas
       })
+      let dataDate = dates.sort();
+      let bigDate = dataDate[dataDate.length - 1];
+      if (this.props.date > bigDate) {
+        this.setState({
+          notifExpiredDate: true
+        })
+        return this.notifExpDate();
+      }
+      
     }).catch((err) => {
       console.log(err);
     })
@@ -54,6 +62,7 @@ class Showdata extends React.Component {
 
   handleCheckChieldElement = (event) => {
     let data = this.state.data;
+    // eslint-disable-next-line
     data.map(item => {
       if (item.title === event.target.value){
         item.isChecked =  event.target.checked
@@ -64,6 +73,7 @@ class Showdata extends React.Component {
     })
     let dataCheckeds = this.state.data;
     let checkeds = [];
+    // eslint-disable-next-line
     dataCheckeds.map(item => {
       if (item.isChecked === true) {
         checkeds.push(item.title)
@@ -97,7 +107,7 @@ class Showdata extends React.Component {
       })
       return this.alert();
     }
-    axios.get('https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/recipes/?ingredients='+dataParams)
+    axios.get(API_URL + '/recipes/?ingredients=' + dataParams)
     .then((res) => {
       this.setState({
         arrDataRecipes: res.data
@@ -182,3 +192,4 @@ class Showdata extends React.Component {
 }
 
 export default Showdata;
+
