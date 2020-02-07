@@ -21,7 +21,9 @@ yarn start
 ```
 
 **For Unit Testing**
-run: yarn test
+```sh
+yarn test
+```
 
 <!-- Anda bisa melihat live demonya melalui link heroku dibawah ini: -->
 
