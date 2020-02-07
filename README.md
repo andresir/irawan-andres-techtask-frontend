@@ -2,6 +2,8 @@
 
 [live demo in heroku]: http://frontes.herokuapp.com/
 
+Demo : http://frontes.herokuapp.com/
+
 Aplikasi ini dibangun menggunakan react js
 
 Sebelum Anda mulai, pastikan Anda telah menginstal [`npm`] [npm] dan [` node`] [node] di sistem Anda. Disarankan agar Anda menggunakan [`yarn`] [yarn] alih-alih` npm` untuk menjalankan dan mengelola paket. Ikuti [panduan menginstal yarn] ini [pasang yarn] pada sistem Anda.
