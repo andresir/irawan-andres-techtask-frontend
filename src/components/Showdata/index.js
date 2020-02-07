@@ -40,8 +40,12 @@ class Showdata extends React.Component {
           notifExpiredDate: true
         })
         return this.notifExpDate();
+      } else {
+        this.setState({
+          notifExpiredDate: false
+        })
+        return this.notifExpDate();
       }
-      
     }).catch((err) => {
       console.log(err);
     })
